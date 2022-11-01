@@ -17,9 +17,9 @@ body {
 
 .paper {
   box-shadow: 0 0 5px #aaa;
-  width: 85%;
-  padding: 50px;
   margin: 50px auto;
+  padding: 50px;
+  width: 85%;
 }
 
 form {
@@ -63,4 +63,30 @@ input[type="submit"] {
 input[type="submit"]:hover {
   color: var(--main-color);
   background: #fff;
+}
+
+li {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  border-bottom: 2px solid #000;
+  width: calc(85% + 100px);
+  padding: 20px 0 10px;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+button.update {
+  background: #6200EE;
+  margin: 0 5px;
+}
+
+button.delete {
+  background: #B00020;
 }
