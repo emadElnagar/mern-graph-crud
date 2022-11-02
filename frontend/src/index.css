@@ -15,6 +15,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+header {
+  margin-top: 50px;
+}
+
+header h1 {
+  color: var(--main-color);
+  text-transform: uppercase;
+  text-align: center;
+}
+
 .paper {
   box-shadow: 0 0 5px #aaa;
   margin: 50px auto;
@@ -73,6 +83,11 @@ li {
   border-bottom: 2px solid #000;
   width: calc(85% + 100px);
   padding: 20px 0 10px;
+}
+
+.book-name {
+  font-weight: 600;
+  font-size: large;
 }
 
 button {
