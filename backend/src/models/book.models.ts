@@ -7,7 +7,7 @@ interface Book {
 }
 
 const bookSchema = new Schema<Book>({
-  title: { type: String, required: true },
+  title: { type: String, required: true, unique: true },
   brief: { type: String, required: true },
   author: { type: String, required: true }
 }, {

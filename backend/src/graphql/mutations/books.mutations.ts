@@ -11,6 +11,10 @@ export const CREATE_NEW_BOOK = {
   },
   async resolve(parent: any, args: any) {
     const { title, brief, author } = args;
+    const foundBook = await Book.findOne({title: title});
+    if (foundBook) {
+      throw new Error("This book already exist");
+    }
     const newBook = await new Book({ title, brief, author }).save();
     return newBook;
   },
