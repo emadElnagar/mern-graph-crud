@@ -1,4 +1,4 @@
-import { GraphQLString } from 'graphql';
+import { GraphQLID, GraphQLString } from 'graphql';
 import Book from '../../models/book.models';
 import bookType from '../types/book.types';
 
@@ -36,5 +36,17 @@ export const UPDATE_BOOK = {
     }
     await Book.updateOne({ title: title }, { brief: brief }, { author: author });
     return { successful: true, message: "Book updated successfully" };
+  },
+}
+
+// DELETE BOOK
+export const DELETE_BOOK = {
+  type: bookType,
+  args: {
+    _id: { type: GraphQLID },
+  },
+  async resolve(parent: any, args: any) {
+    const id = args._id;
+    await Book.deleteOne(id);
   },
 }
