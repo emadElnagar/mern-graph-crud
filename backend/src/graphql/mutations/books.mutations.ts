@@ -23,6 +23,7 @@ export const CREATE_NEW_BOOK = {
 
 // UPDATE BOOK
 export const UPDATE_BOOK = {
+  type: bookType,
   args: {
     title: { type: GraphQLString },
     brief: { type: GraphQLString },
@@ -35,7 +36,6 @@ export const UPDATE_BOOK = {
       throw new Error("This book doesn't exist");
     }
     await Book.updateOne({ title: title }, { brief: brief }, { author: author });
-    return { successful: true, message: "Book updated successfully" };
   },
 }
 
