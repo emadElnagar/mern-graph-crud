@@ -2,7 +2,7 @@ import { GraphQLList, GraphQLObjectType } from 'graphql';
 import bookType from '../types/book.types';
 import Book from '../../models/book.models';
 
-const GET_ALL_BOOKS = new GraphQLObjectType({
+export const GET_ALL_BOOKS = new GraphQLObjectType({
   name: 'Query',
   description: 'This is the query type',
   fields: {
@@ -14,5 +14,3 @@ const GET_ALL_BOOKS = new GraphQLObjectType({
     }
   }
 });
-
-export default GET_ALL_BOOKS;
