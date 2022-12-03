@@ -10,7 +10,7 @@ export const CREATE_NEW_BOOK = {
     brief: { type: GraphQLString },
     author: { type: GraphQLString },
   },
-  async resolve(parent: any, args: any) {
+  async resolve(_parent: any, args: any) {
     const { title, brief, author } = args;
     const foundBook = await Book.findOne({title: title});
     if (foundBook) {
@@ -29,7 +29,7 @@ export const UPDATE_BOOK = {
     brief: { type: GraphQLString },
     author: { type: GraphQLString },
   },
-  async resolve(parent: any, args: any) {
+  async resolve(_parent: any, args: any) {
     const { title, brief, author } = args;
     const book = await Book.findOne({title: title});
     if (!book) {
@@ -45,7 +45,7 @@ export const DELETE_BOOK = {
   args: {
     _id: { type: GraphQLID },
   },
-  async resolve(parent: any, args: any) {
+  async resolve(_parent: any, args: any) {
     const id = args._id;
     await Book.deleteOne(id);
   },
