@@ -1,4 +1,6 @@
+import { Key } from "react";
 import { useBooks } from "../hooks/books";
+import Book from "./book";
 
 function BookList() {
   const { error, loading, data } = useBooks();
@@ -6,15 +8,14 @@ function BookList() {
     loading ? <div>loading</div> :
     error ?  <div>error</div> :
     <ul>
-      {data.books.map((book: { title: string }) => {
+      {data.books.map((book: {
+        _id: Key,
+        title: string,
+        author: string,
+        brief: string
+      }) => {
         return (
-          <li>
-            <span className="book-name">{book.title}</span>
-            <div className="buttons">
-              <button className="update">update</button>
-              <button className="delete">delete</button>
-            </div>
-          </li>
+          <Book key={book._id} title={book.title} author={book.author} brief={book.brief} />
         )
       })}
     </ul>
