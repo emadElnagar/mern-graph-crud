@@ -5,6 +5,8 @@
 
 :root {
   --main-color: #e040fb;
+  --secondary: #6200EE;
+  --danger: #B00020;
 }
 
 body {
@@ -98,10 +100,22 @@ button {
 }
 
 button.update {
-  background: #6200EE;
+  background: var(--secondary);
   margin: 0 5px;
 }
 
 button.delete {
-  background: #B00020;
+  background: var(--danger);
+}
+
+.book {
+  position: relative;
+}
+
+.book .author {
+  color: var(--secondary);
+  text-transform: capitalize;
+  position: absolute;
+  bottom: 2px;
+  left: 0;
 }
