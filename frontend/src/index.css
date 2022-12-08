@@ -119,3 +119,12 @@ button.delete {
   bottom: 2px;
   left: 0;
 }
+
+.error {
+  color: var(--danger);
+  background-color: #ffe0e0;
+  border: 1px solid var(--danger);
+  width: 85%;
+  margin: auto;
+  text-align: center;
+}
