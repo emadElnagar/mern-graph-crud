@@ -2,11 +2,12 @@ import { Key } from "react";
 import { useBooks } from "../hooks/books";
 import Book from "./book";
 import ErrorBox from "./Error";
+import LoadingBox from "./LoadingBox";
 
 function BookList() {
   const { error, loading, data } = useBooks();
   return(
-    loading ? <div>loading</div> :
+    loading ? <LoadingBox /> :
     error ?  <ErrorBox /> :
     <ul>
       {data.books.map((book: {
