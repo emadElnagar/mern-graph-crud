@@ -1,9 +1,13 @@
-import { GraphQLObjectType, GraphQLString } from 'graphql';
+import { GraphQLObjectType, GraphQLString, GraphQLID } from 'graphql';
 
 const bookType = new GraphQLObjectType({
   name: 'Book',
   description: 'This is the book type',
   fields: {
+    _id: {
+      type: GraphQLID,
+      description: 'The unique id for the book'
+    },
     title: {
       type: GraphQLString,
       description: 'The title of the book or book name'
