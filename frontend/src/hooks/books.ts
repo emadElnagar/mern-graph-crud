@@ -3,6 +3,7 @@ import { useQuery, gql } from '@apollo/client'
 const GET_BOOKS = gql`
   query {
     books {
+      _id,
       title,
       brief,
       author
