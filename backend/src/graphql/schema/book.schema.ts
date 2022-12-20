@@ -1,5 +1,5 @@
 import { GraphQLSchema, GraphQLObjectType } from 'graphql';
-import { GET_ALL_BOOKS } from '../query/book.query';
+import { GET_ALL_BOOKS, GET_SINGLE_BOOK } from '../query/book.query';
 import { CREATE_NEW_BOOK, UPDATE_BOOK, DELETE_BOOK } from '../mutations/books.mutations';
 
 const RootQuery = new GraphQLObjectType({
@@ -7,6 +7,7 @@ const RootQuery = new GraphQLObjectType({
   description: 'Collection Of All Queries',
   fields: {
     books: GET_ALL_BOOKS,
+    book: GET_SINGLE_BOOK,
   }
 });
 
