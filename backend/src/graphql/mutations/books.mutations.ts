@@ -47,6 +47,6 @@ export const DELETE_BOOK = {
   },
   async resolve(_parent: any, args: any) {
     const id = args._id;
-    await Book.deleteOne(id);
+    await Book.findByIdAndDelete(id);
   },
 }
