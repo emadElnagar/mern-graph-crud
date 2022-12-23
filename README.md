@@ -7,3 +7,4 @@ Crud app which user can create read update and delete developed using MERN stack
 * React
 * TypeScript
 * Graphql
+* CSS
