@@ -1,6 +1,8 @@
 import { Key } from "react";
 import { useMutation } from "@apollo/client";
 import { DELETE_BOOK } from "../hooks/deleteBook";
+import LoadingBox from "./LoadingBox";
+import ErrorBox from "./Error";
 
 interface BookProps {
   _id: Key;
@@ -11,6 +13,8 @@ interface BookProps {
 const Book = ({ _id, title, author }: BookProps) => {
   const [deleteBook, { error, loading }] = useMutation(DELETE_BOOK);
   return (
+    loading ? <LoadingBox /> :
+    error ? <ErrorBox /> :
     <li className="book">
       <span className="book-name">{title}</span>
       <div className="buttons">
