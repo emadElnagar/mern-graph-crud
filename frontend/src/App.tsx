@@ -1,16 +1,20 @@
 import './App.css';
-import BookList from './components/book-list';
-import Form from './components/form';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/Home';
 
 function App() {
   return (
-    <div className="App">
-      <header>
-        <h1>my library</h1>
-      </header>
-      <Form />
-      <BookList />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <header>
+          <h1>my library</h1>
+        </header>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+        </Routes>
+        
+      </div>
+    </BrowserRouter>
   );
 }
 
