@@ -4,6 +4,7 @@ import { DELETE_BOOK } from "../hooks/deleteBook";
 import LoadingBox from "./LoadingBox";
 import ErrorBox from "./Error";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 interface BookProps {
   _id: Key;
@@ -17,7 +18,9 @@ const Book = ({ _id, title, author }: BookProps) => {
     loading ? <LoadingBox /> :
     error ? <ErrorBox /> :
     <li className="book">
-      <span className="book-name">{title}</span>
+      <span className="book-name">
+        <Link to={`${_id}`}>{title}</Link>
+      </span>
       <div className="buttons">
         <button className="update">update</button>
         <button className="delete" onClick={() => {

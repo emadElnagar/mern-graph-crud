@@ -27,6 +27,11 @@ header h1 {
   text-align: center;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .paper {
   box-shadow: 0 0 5px #aaa;
   margin: 50px auto;
@@ -113,7 +118,7 @@ button.delete {
 }
 
 .book .author {
-  color: var(--secondary);
+  color: var(--main-color);
   text-transform: capitalize;
   position: absolute;
   bottom: 2px;
@@ -127,4 +132,23 @@ button.delete {
   width: 85%;
   margin: auto;
   text-align: center;
+}
+
+.book-container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.book-container .title {
+  margin: 40px 0 0;
+}
+
+.book-container p {
+  color: #D3D3D3;
+  margin: 20px 0;
+}
+
+.book-container .autor-name {
+  color: var(--main-color);
+  text-transform: capitalize;
 }
