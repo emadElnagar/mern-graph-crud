@@ -98,19 +98,21 @@ li {
 }
 
 button {
-  padding: 10px;
+  padding: 5px;
   border: none;
   color: #fff;
   cursor: pointer;
+  background: transparent;
+  font-size: 20px;
 }
 
 button.update {
-  background: var(--secondary);
+  color: var(--secondary);
   margin: 0 5px;
 }
 
 button.delete {
-  background: var(--danger);
+  color: var(--danger);
 }
 
 .book {

@@ -5,6 +5,8 @@ import LoadingBox from "./LoadingBox";
 import ErrorBox from "./Error";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { AiFillDelete } from 'react-icons/ai';
+import { HiPencil } from 'react-icons/hi';
 
 interface BookProps {
   _id: Key;
@@ -22,7 +24,7 @@ const Book = ({ _id, title, author }: BookProps) => {
         <Link to={`${_id}`}>{title}</Link>
       </span>
       <div className="buttons">
-        <button className="update">update</button>
+        <button className="update"><HiPencil /></button>
         <button className="delete" onClick={() => {
           Swal.fire({
             title: 'Are you sure?',
@@ -42,7 +44,7 @@ const Book = ({ _id, title, author }: BookProps) => {
               )
             }
           });
-        }}>delete</button>
+        }}><AiFillDelete /></button>
       </div>
       <span className="author"><small>by: {author}</small></span>
     </li>
