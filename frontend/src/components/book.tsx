@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { AiFillDelete } from 'react-icons/ai';
 import { HiPencil } from 'react-icons/hi';
+import { GET_BOOKS } from '../hooks/books';
 
 interface BookProps {
   _id: Key;
@@ -36,7 +37,10 @@ const Book = ({ _id, title, author }: BookProps) => {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-              deleteBook({variables: {id: _id}});
+              deleteBook({
+                variables: { id: _id },
+                refetchQueries: [{ query: GET_BOOKS }]
+              });
               Swal.fire(
                 'Deleted!',
                 'Your file has been deleted.',

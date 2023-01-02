@@ -2,6 +2,7 @@ import { useMutation } from "@apollo/client";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { CREATE_NEW_BOOK } from "../hooks/NewBook";
+import { GET_BOOKS } from '../hooks/books';
 
 function Form() {
   const [title, setTitle] = useState('');
@@ -18,13 +19,14 @@ function Form() {
       });
     }
     createNewBook({
-      variables: { title, author, brief }
+      variables: { title, author, brief },
+      refetchQueries: [{ query: GET_BOOKS }]
     });
   }
   return (
     <div className="paper">
       <form onSubmit={handleSubmit}>
-        <input type="text" id="name" placeholder="Book name" onChange={(e) => setTitle(e.target.value)} />
+        <input type="text" id="title" placeholder="Book name" onChange={(e) => setTitle(e.target.value)} />
         <input type="text" id="autor" placeholder="Book autor" onChange={(e) => setAuthor(e.target.value)} />
         <textarea id="brief" placeholder="Brief about the book" onChange={(e) => setBrief(e.target.value)}></textarea>
         <input type="submit" value="craate" />
