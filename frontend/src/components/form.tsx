@@ -9,7 +9,9 @@ function Form() {
   const [author, setAuthor] = useState('');
   const [brief, setBrief] = useState('');
   const [createNewBook, { error }] = useMutation(CREATE_NEW_BOOK);
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
+  const handleSubmit = (e: {
+    target: any; preventDefault: () => void; 
+  }) => {
     e.preventDefault();
     if(error) {
       Swal.fire({
@@ -22,13 +24,14 @@ function Form() {
       variables: { title, author, brief },
       refetchQueries: [{ query: GET_BOOKS }]
     });
+    e.target.reset();
   }
   return (
     <div className="paper">
       <form onSubmit={handleSubmit}>
-        <input type="text" id="title" placeholder="Book name" onChange={(e) => setTitle(e.target.value)} />
-        <input type="text" id="autor" placeholder="Book autor" onChange={(e) => setAuthor(e.target.value)} />
-        <textarea id="brief" placeholder="Brief about the book" onChange={(e) => setBrief(e.target.value)}></textarea>
+        <input type="text" id="title" placeholder="Book name" onChange={(e) => setTitle(e.target.value)} required />
+        <input type="text" id="autor" placeholder="Book autor" onChange={(e) => setAuthor(e.target.value)} required />
+        <textarea id="brief" placeholder="Brief about the book" onChange={(e) => setBrief(e.target.value)} required ></textarea>
         <input type="submit" value="craate" />
       </form>
     </div>
