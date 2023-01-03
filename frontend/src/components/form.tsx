@@ -17,7 +17,7 @@ function Form() {
       Swal.fire({
         title: 'Error',
         text: `${ error.message }`,
-        icon: 'warning',
+        icon: 'error',
       });
     }
     createNewBook({
