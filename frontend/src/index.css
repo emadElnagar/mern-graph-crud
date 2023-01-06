@@ -97,6 +97,10 @@ li {
   font-size: large;
 }
 
+.buttons {
+  display: flex;
+}
+
 button {
   padding: 5px;
   border: none;
@@ -113,6 +117,16 @@ button.update {
 
 button.delete {
   color: var(--danger);
+}
+
+button.cancel {
+  color: #fff;
+  background: #aaa;
+  width: 100px;
+  height: auto;
+  padding: 10px 0;
+  font-size: small;
+  margin-left: 5px;
 }
 
 .book {
@@ -153,4 +167,29 @@ button.delete {
 .book-container .autor-name {
   color: var(--main-color);
   text-transform: capitalize;
+}
+
+.d-none {
+  display: none;
+}
+
+.update-from {
+  width: 90%;
+  margin: 10px auto;
+  overflow: hidden;
+  transition: 0.3s all ease;
+  height: 0;
+}
+
+.show {
+  height: auto;
+}
+
+.fields {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fields input {
+  width: 48%;
 }
