@@ -25,17 +25,14 @@ export const CREATE_NEW_BOOK = {
 export const UPDATE_BOOK = {
   type: bookType,
   args: {
+    _id: { type: GraphQLID },
     title: { type: GraphQLString },
     brief: { type: GraphQLString },
     author: { type: GraphQLString },
   },
   async resolve(_parent: any, args: any) {
-    const { title, brief, author } = args;
-    const book = await Book.findOne({title: title});
-    if (!book) {
-      throw new Error("This book doesn't exist");
-    }
-    await Book.updateOne({ title: title }, { brief: brief }, { author: author });
+    const { _id, title, brief, author } = args;
+    await Book.findByIdAndUpdate(_id, { title, brief, author });
   },
 }
 
