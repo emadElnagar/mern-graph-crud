@@ -5,7 +5,8 @@ export const GET_BOOKS = gql`
     books {
       _id,
       title,
-      author
+      author,
+      brief
     }
   }
 `

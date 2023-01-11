@@ -13,9 +13,10 @@ interface BookProps {
   _id: Key;
   title: string;
   author: string;
+  brief: string;
 }
 
-const Book = ({ _id, title, author }: BookProps) => {
+const Book = ({ _id, title, author, brief }: BookProps) => {
   const [isUpdating, setIsUpdating] = useState(false);
   const [deleteBook, { error, loading }] = useMutation(DELETE_BOOK);
   return (
@@ -61,7 +62,7 @@ const Book = ({ _id, title, author }: BookProps) => {
             <input defaultValue={title} type="text" placeholder="Book name" />
             <input defaultValue={author} type="text" placeholder="Book autor" />
           </div>
-          <textarea placeholder="Brief about the book"></textarea>
+          <textarea defaultValue={brief} placeholder="Brief about the book"></textarea>
           <div className="buttons">
             <input type="submit" value="submit" />
             <button className="cancel" onClick={() => setIsUpdating(false)}>cancel</button>

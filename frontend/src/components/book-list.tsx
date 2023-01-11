@@ -13,10 +13,11 @@ function BookList() {
       {data.books.map((book: {
         _id: Key,
         title: string,
-        author: string
+        author: string,
+        brief: string
       }) => {
         return (
-          <Book key={book._id} _id={book._id} title={book.title} author={book.author} />
+          <Book key={book._id} _id={book._id} title={book.title} author={book.author} brief={book.brief} />
         )
       })}
     </ul>
