@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { AiFillDelete } from 'react-icons/ai';
 import { HiPencil } from 'react-icons/hi';
 import { GET_BOOKS } from '../hooks/books';
+import { UPDATE_BOOK } from "../hooks/UpdateBook";
 
 interface BookProps {
   _id: Key;
@@ -18,7 +19,11 @@ interface BookProps {
 
 const Book = ({ _id, title, author, brief }: BookProps) => {
   const [isUpdating, setIsUpdating] = useState(false);
+  const [newTitle, setNewTitle] = useState('');
+  const [newAuthor, setNewAuthor] = useState('');
+  const [newBrief, setNewBrief] = useState('');
   const [deleteBook, { error, loading }] = useMutation(DELETE_BOOK);
+  const [updateBook] = useMutation(UPDATE_BOOK);
   return (
     loading ? <LoadingBox /> :
     error ? <ErrorBox /> :
@@ -57,12 +62,22 @@ const Book = ({ _id, title, author, brief }: BookProps) => {
       </li>
       {/* UPDATE FORM */}
       <div className={`update-from ${isUpdating === true ? 'show' : ''}`}>
-        <form>
+        <form onSubmit={() => {
+          updateBook({
+            variables: {
+              id: _id,
+              title: newTitle,
+              author: newAuthor,
+              brief: newBrief
+            },
+            refetchQueries: [{ query: GET_BOOKS }]
+          });
+        }}>
           <div className="fields">
-            <input defaultValue={title} type="text" placeholder="Book name" />
-            <input defaultValue={author} type="text" placeholder="Book autor" />
+            <input defaultValue={title} type="text" placeholder="Book name" onChange={(e) => {setNewTitle(e.target.value)}} />
+            <input defaultValue={author} type="text" placeholder="Book autor" onChange={(e) => {setNewAuthor(e.target.value)}} />
           </div>
-          <textarea defaultValue={brief} placeholder="Brief about the book"></textarea>
+          <textarea defaultValue={brief} placeholder="Brief about the book" onChange={(e) => {setNewBrief(e.target.value)}}></textarea>
           <div className="buttons">
             <input type="submit" value="submit" />
             <button className="cancel" onClick={() => setIsUpdating(false)}>cancel</button>
