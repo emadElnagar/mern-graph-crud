@@ -80,7 +80,10 @@ const Book = ({ _id, title, author, brief }: BookProps) => {
           <textarea defaultValue={brief} placeholder="Brief about the book" onChange={(e) => {setNewBrief(e.target.value)}}></textarea>
           <div className="buttons">
             <input type="submit" value="submit" />
-            <button className="cancel" onClick={() => setIsUpdating(false)}>cancel</button>
+            <button className="cancel" onClick={(e) => {
+              e.preventDefault();
+              setIsUpdating(false)
+            }}>cancel</button>
           </div>
         </form>
       </div>
