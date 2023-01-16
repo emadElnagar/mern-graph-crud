@@ -193,3 +193,11 @@ button.cancel {
 .fields input {
   width: 48%;
 }
+
+.back-btn {
+  background: var(--main-color);
+  color: #fff;
+  padding: 5px 25px;
+  position: absolute;
+  left: 20px;
+}
